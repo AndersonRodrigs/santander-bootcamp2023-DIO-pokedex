@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
 
 @import './pokedex.css';
+@import './pokemons-colors.css';
 
 * {
   margin: 0;
@@ -13,7 +14,7 @@ body {
   background-color: #f0f0f0;
 }
 
-li {
+ol {
   list-style: none;
 }
 
