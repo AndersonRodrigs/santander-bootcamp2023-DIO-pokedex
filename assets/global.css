@@ -2,6 +2,7 @@
 
 @import './pokedex.css';
 @import './pokemons-colors.css';
+@import './modal-stats-pokemon.css';
 
 * {
   margin: 0;
@@ -14,11 +15,12 @@ body {
   background-color: #f0f0f0;
 }
 
-ol {
+ol,
+ul {
   list-style: none;
 }
 
-.content {
+#content {
   display: flex;
   flex-direction: column;
   align-items: center;

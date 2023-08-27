@@ -65,6 +65,8 @@ header {
   width: fit-content;
   font-size: 0.825rem;
   margin: 0.25rem 0;
+  text-transform: capitalize;
+  color: white;
 }
 
 .pokemon .detail img {

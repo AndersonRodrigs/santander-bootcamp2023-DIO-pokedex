@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./assets/global.css" />
   </head>
   <body>
-    <section class="content">
+    <main id="content">
       <header>
         <figure>
           <img src="./assets/images/Rectangle 24.png" alt="" />
@@ -18,13 +18,17 @@
           <img src="./assets/images/Rectangle 24.png" alt="" />
         </figure>
       </header>
-      <ol class="pokemons" id="pokemonList"></ol>
-      <div class="pagination">
-        <button id="loadMoreButton">Load more</button>
-      </div>
-    </section>
+
+      <section>
+        <ol class="pokemons" id="pokemon-list"></ol>
+        <div class="pagination">
+          <button id="loadMoreButton">Load more</button>
+        </div>
+      </section>
+    </main>
     <script src="./assets/pokemon-model.js"></script>
     <script src="./assets/pokeApi.js"></script>
+    <script src="./assets/modal-stats-pokemon.js"></script>
     <script src="./assets/main.js"></script>
   </body>
 </html>
