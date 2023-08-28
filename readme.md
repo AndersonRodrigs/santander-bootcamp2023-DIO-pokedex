@@ -1,6 +1,6 @@
 # Pokédex Santander Bootcamp 2023
 
-> Este é um projeto desenvolvido como parte do Santander Bootcamp 2023 da Digital Innovation One. O projeto consiste em uma Pokédex interativa que permite aos usuários visualizar informações sobre diferentes Pokémon.
+> Este é um projeto desenvolvido como parte do Santander Bootcamp 2023 da Digital Innovation One. O projeto consiste em uma Pokédex interativa que permite aos usuários visualizar informações sobre diferentes Pokémons.
 
 ![image](./.github/preview.png)
 
