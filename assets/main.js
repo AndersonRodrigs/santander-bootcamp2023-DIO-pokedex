@@ -1,3 +1,6 @@
+
+
+
 const pokemonList = document.getElementById('pokemon-list')
 const loadMoreButton = document.getElementById('loadMoreButton')
 const limit = 10

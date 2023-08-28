@@ -1,4 +1,4 @@
-const content = document.getElementById('content')
+const content = document.getElementById('pokemon-information')
 const listPokemon = document.getElementById('pokemon-list')
 
 const typesAbreviation = ['HP', 'ATK', 'DEF', 'SATK', 'SDEF', 'SPD']
@@ -7,10 +7,9 @@ function modalPokemonCard(pokemon) {
   const types = pokemon.types.map(typeSlot => typeSlot.type.name)
   const stats = pokemon.stats.map(stat => stat)
 
-
-  console.log(pokemon)
+  console.log(pokemon.moves[0].move.name)
   const modalSection = `
-  <section id="pokemon-information">
+      <div class="content-modal">        
         <div class="pokemon-stats ${types[0]}">
           <header>
             <div>
@@ -32,13 +31,13 @@ function modalPokemonCard(pokemon) {
                   .join('')}
               </ol>
             </div>
-           <!-- <div class="about-pokemon">
+           <div class="about-pokemon">
               <h3 class="title ${types[0]}">About</h3>
               <ul class="about-list">
                 <li>
                   <span>
                     <img src="./assets/images/weight-icon.svg" alt="">
-                     kg
+                    ${pokemon.weight / 10} kg
                   </span>
                   <span>
                     Weight
@@ -47,7 +46,7 @@ function modalPokemonCard(pokemon) {
                 <li>
                   <span>
                     <img src="./assets/images/height.svg" alt="">
-                    .2 m
+                    ${pokemon.height / 10} m
                   </span>
                   <span>
                     Height
@@ -55,16 +54,15 @@ function modalPokemonCard(pokemon) {
                 </li>
                 <li>
                   <span>
-                    <p>Mega-push</p>
-                    <p>Mega-p</p>
+                  <p>${pokemon.moves[0].move.name}</p>
+                  <p>${pokemon.moves[1].move.name}</p>
                   </span>
                   <span>
-                  Ability
+                  Moves
                   </span>
                 </li>
               </ul>
             </div>
-            -->
             <div class="base-stats">
               <h3 class="title ${types[0]}">Base Stats</h3>
               <ul class="stats">
@@ -87,7 +85,7 @@ function modalPokemonCard(pokemon) {
             </div>
           </div>
         </div>
-      </section>
+      </div>
   `
 
   content.innerHTML += modalSection
@@ -100,7 +98,7 @@ function showPokemonModal(idPokemon) {
 }
 
 function closeModal() {
-  const sectionPokemonModal = document.querySelector('#pokemon-information')
+  const sectionPokemonModal = document.querySelector('.content-modal')
   content.removeChild(sectionPokemonModal)
   showCloseModal = true
 }
