@@ -1,8 +1,53 @@
-header {
+header.content-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+}
+
+header #search-section {
+  display: flex;
+  margin-top: 16px;
+  border-radius: 18px;
+}
+
+header #search-pokemon {
+  padding: 10px 16px 10px 12px;
+  border-radius: 16px 0px 0px 16px;
+  border: none;
+  background-color: #1467af;
+  outline: none;
+  color: #fff;
+  font-size: 1rem;
+  border: 1px solid #1467af;
+}
+
+
+header #search-pokemon.invalid::placeholder,
+header #search-pokemon.invalid {
+  color: #f20707;
+  border-color: #f20707;
+}
+
+header #search-pokemon::placeholder {
+  color: #e2e2e2;
+}
+
+header #search-section button {
+  background-color: #1467af;
+  padding: 8px 16px 8px 12px;
+  border: none;
+  border-radius: 0px 16px 16px 0px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+header #search-section button img {
+  width: 25px;
 }
 
 .pokemons {
@@ -19,7 +64,7 @@ header {
 
   border-radius: 0.75rem;
   color: #fff;
-  background-image: url(../images/pokeball.svg);
+  background-image: url(../images/pokeball-background.svg);
   background-size: 135px;
   background-position-x: 100px;
   background-position-y: 50px;
@@ -63,7 +108,7 @@ header {
   filter: brightness(1.1);
   padding: 0.25rem 1rem;
   border-radius: 10px;
-  width: fit-content;
+  width: min-content;
   font-size: 0.825rem;
   margin: 0.25rem 0;
   text-transform: capitalize;
@@ -84,7 +129,7 @@ header {
 }
 
 .pagination button {
-  background-color: #4806e4;
+  background-color: #1467af;
   color: #fff;
   border: none;
   padding: 0.95rem 1.5rem;
@@ -95,7 +140,7 @@ header {
 }
 
 .pagination button:hover {
-  background: #280085;
+  background: #014a8a;
 }
 
 @media screen and (max-width: 992px) {
@@ -125,7 +170,7 @@ header {
   }
 
   .pokemon {
-    padding: .5rem .5rem;
+    padding: 0.5rem 0.5rem;
     width: 170px;
     background-size: 100px;
     background-position-x: 90px;

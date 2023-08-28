@@ -1,20 +1,19 @@
 const content = document.getElementById('pokemon-information')
 const listPokemon = document.getElementById('pokemon-list')
 
-const typesAbreviation = ['HP', 'ATK', 'DEF', 'SATK', 'SDEF', 'SPD']
+const typesNamesAbreviation = ['HP', 'ATK', 'DEF', 'SATK', 'SDEF', 'SPD']
 
 function modalPokemonCard(pokemon) {
   const types = pokemon.types.map(typeSlot => typeSlot.type.name)
   const stats = pokemon.stats.map(stat => stat)
-
-  console.log(pokemon.moves[0].move.name)
+  console.log(pokemon)
   const modalSection = `
       <div class="content-modal">        
         <div class="pokemon-stats ${types[0]}">
           <header>
             <div>
               <button onclick="closeModal()">
-                <img src="./assets/images/arrow_back.png" alt="" />
+                <img src="./assets/images/arrow-icon.svg" alt="" />
               </button>
               <h2 class="pokemon-name">${pokemon.name}</h2>
             </div>
@@ -45,7 +44,7 @@ function modalPokemonCard(pokemon) {
                 </li>
                 <li>
                   <span>
-                    <img src="./assets/images/height.svg" alt="">
+                    <img src="./assets/images/height-icon.svg" alt="">
                     ${pokemon.height / 10} m
                   </span>
                   <span>
@@ -70,7 +69,7 @@ function modalPokemonCard(pokemon) {
                   .map((stat, i) => {
                     return `
                   <li>
-                  <span class="stat ${types[0]}">${typesAbreviation[i]}</span>
+                  <span class="stat ${types[0]}">${typesNamesAbreviation[i]}</span>
                     <div class="stat-bar">
                       <span class="number-stat">${stat.base_stat}</span>
                       <div class="bar">
@@ -91,21 +90,45 @@ function modalPokemonCard(pokemon) {
   content.innerHTML += modalSection
 }
 
-let showCloseModal = true
 function showPokemonModal(idPokemon) {
   getPokemonToModal(idPokemon)
-  showCloseModal = false
 }
 
 function closeModal() {
   const sectionPokemonModal = document.querySelector('.content-modal')
   content.removeChild(sectionPokemonModal)
-  showCloseModal = true
 }
 
 function getPokemonToModal(id) {
   const URLPokemon = `https://pokeapi.co/api/v2/pokemon/${id}`
-  return fetch(URLPokemon)
-    .then(res => res.json())
+  fetch(URLPokemon)
+    .then(res => {
+      invalidPokemonInput(res.status)
+      return res.json()
+    })
     .then(dataPokemon => modalPokemonCard(dataPokemon))
+    .catch(e => {
+      invalidPokemonInput(e)
+    })
 }
+
+const inputValue = document.querySelector('#search-pokemon')
+function invalidPokemonInput(e) {
+  if (e === 200) {
+    inputValue.classList.remove('invalid')
+  } else {
+    inputValue.classList.add('invalid')
+    inputValue.value = ''
+  }
+}
+
+function buscar() {
+  getPokemonToModal(inputValue.value.toLowerCase())
+}
+
+const sectionSearch = document.getElementById('search-section')
+
+sectionSearch.addEventListener('submit', e => e.preventDefault())
+sectionSearch.addEventListener('keypress', e => {
+  inputValue.classList.remove('invalid')
+})
